@@ -94,6 +94,18 @@ User (Passkey)  ──►  Identity Provider  ◄──  DDISA DNS (_ddisa.examp
                     Human Approval  ──►  AuthZ-JWT (once/ttl/always)
 ```
 
+## Protocol Specification
+
+The DDISA protocol is formally specified in [`openape-ai/protocol`](https://github.com/openape-ai/protocol):
+
+| Document | Description |
+|----------|-------------|
+| [`core.md`](https://github.com/openape-ai/protocol/blob/main/core.md) | DNS discovery, IdP/SP metadata, authentication (WebAuthn + Ed25519), token format |
+| [`grants.md`](https://github.com/openape-ai/protocol/blob/main/grants.md) | Grant-based authorization REST API — works with any OIDC IdP |
+| [`delegation.md`](https://github.com/openape-ai/protocol/blob/main/delegation.md) | User-to-user delegation of rights at Service Providers |
+
+JSON schemas and complete HTTP examples are included in the repo.
+
 ## Standards & Compliance
 
 - **WebAuthn/FIDO2** — Passwordless authentication
