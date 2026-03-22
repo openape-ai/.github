@@ -16,32 +16,35 @@ As AI agents become autonomous participants on the web, they need the same secur
 
 ## Packages
 
+All packages live in the [**openape monorepo**](https://github.com/openape-ai/openape).
+
 ### Core
 
 | Package | npm | Description |
 |---|---|---|
-| [`@openape/core`](https://github.com/openape-ai/core) | [![npm](https://img.shields.io/npm/v/@openape/core)](https://www.npmjs.com/package/@openape/core) | DNS discovery, crypto, JWT, PKCE utilities |
-| [`@openape/auth`](https://github.com/openape-ai/auth) | [![npm](https://img.shields.io/npm/v/@openape/auth)](https://www.npmjs.com/package/@openape/auth) | WebAuthn + OIDC for Identity & Service Providers |
-| [`@openape/grants`](https://github.com/openape-ai/grants) | [![npm](https://img.shields.io/npm/v/@openape/grants)](https://www.npmjs.com/package/@openape/grants) | Grant lifecycle, approval flows & AuthZ-JWT |
+| [`@openape/core`](https://github.com/openape-ai/openape/tree/main/packages/core) | [![npm](https://img.shields.io/npm/v/@openape/core)](https://www.npmjs.com/package/@openape/core) | DNS discovery, crypto, JWT, PKCE utilities |
+| [`@openape/auth`](https://github.com/openape-ai/openape/tree/main/packages/auth) | [![npm](https://img.shields.io/npm/v/@openape/auth)](https://www.npmjs.com/package/@openape/auth) | WebAuthn + OIDC for Identity & Service Providers |
+| [`@openape/grants`](https://github.com/openape-ai/openape/tree/main/packages/grants) | [![npm](https://img.shields.io/npm/v/@openape/grants)](https://www.npmjs.com/package/@openape/grants) | Grant lifecycle, approval flows & AuthZ-JWT |
 
 ### Nuxt Modules (Drop-in)
 
 | Package | npm | Description |
 |---|---|---|
-| [`@openape/nuxt-auth-idp`](https://github.com/openape-ai/nuxt-auth-idp) | [![npm](https://img.shields.io/npm/v/@openape/nuxt-auth-idp)](https://www.npmjs.com/package/@openape/nuxt-auth-idp) | Identity Provider module |
-| [`@openape/nuxt-auth-sp`](https://github.com/openape-ai/nuxt-auth-sp) | [![npm](https://img.shields.io/npm/v/@openape/nuxt-auth-sp)](https://www.npmjs.com/package/@openape/nuxt-auth-sp) | Service Provider module |
-| [`@openape/nuxt-grants`](https://github.com/openape-ai/nuxt-grants) | [![npm](https://img.shields.io/npm/v/@openape/nuxt-grants)](https://www.npmjs.com/package/@openape/nuxt-grants) | Grant management UI & API |
+| `@openape/nuxt-auth-idp` | [![npm](https://img.shields.io/npm/v/@openape/nuxt-auth-idp)](https://www.npmjs.com/package/@openape/nuxt-auth-idp) | Identity Provider module |
+| `@openape/nuxt-auth-sp` | [![npm](https://img.shields.io/npm/v/@openape/nuxt-auth-sp)](https://www.npmjs.com/package/@openape/nuxt-auth-sp) | Service Provider module |
+| `@openape/nuxt-grants` | [![npm](https://img.shields.io/npm/v/@openape/nuxt-grants)](https://www.npmjs.com/package/@openape/nuxt-grants) | Grant management UI & API |
 
 ### Tools
 
-| Package | Description |
-|---|---|
-| [`openape-sudo`](https://github.com/openape-ai/sudo) | Privilege elevation CLI — agents request root via grant approval (Rust) |
-| [`openape-proxy`](https://github.com/openape-ai/proxy) | Application-level HTTP proxy — grant-based access control for agent traffic |
+| Package | npm | Description |
+|---|---|---|
+| [`@openape/proxy`](https://github.com/openape-ai/openape/tree/main/packages/proxy) | [![npm](https://img.shields.io/npm/v/@openape/proxy)](https://www.npmjs.com/package/@openape/proxy) | Agent HTTP gateway — forward proxy with grant-based access control |
+| [`@openape/browser`](https://github.com/openape-ai/openape/tree/main/packages/browser) | [![npm](https://img.shields.io/npm/v/@openape/browser)](https://www.npmjs.com/package/@openape/browser) | Grant-aware headless browser (Playwright wrapper) |
+| [`@openape/grapes`](https://github.com/openape-ai/openape/tree/main/packages/grapes) | [![npm](https://img.shields.io/npm/v/@openape/grapes)](https://www.npmjs.com/package/@openape/grapes) | Universal grant management CLI |
+| [`@openape/shapes`](https://github.com/openape-ai/openape/tree/main/packages/shapes) | [![npm](https://img.shields.io/npm/v/@openape/shapes)](https://www.npmjs.com/package/@openape/shapes) | Grant-aware CLI wrappers |
+| [`escapes`](https://github.com/openape-ai/escapes) | — | Privilege elevation CLI — agents request root via grant approval (Rust) |
 
 ## Get Started
-
-**→ [examples](https://github.com/openape-ai/examples)** — Full working IdP + SP with deployment guide
 
 **→ [docs.openape.at](https://docs.openape.at)** — Documentation
 
@@ -115,4 +118,4 @@ JSON schemas and complete HTTP examples are included in the repo.
 
 ## License
 
-[MIT](https://github.com/openape-ai/examples/blob/main/LICENSE)
+[MIT](https://github.com/openape-ai/openape/blob/main/LICENSE)
