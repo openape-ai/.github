@@ -30,18 +30,16 @@ All packages live in the [**openape monorepo**](https://github.com/openape-ai/op
 
 | Package | npm | Description |
 |---|---|---|
-| `@openape/nuxt-auth-idp` | [![npm](https://img.shields.io/npm/v/@openape/nuxt-auth-idp)](https://www.npmjs.com/package/@openape/nuxt-auth-idp) | Identity Provider module |
+| `@openape/nuxt-auth-idp` | [![npm](https://img.shields.io/npm/v/@openape/nuxt-auth-idp)](https://www.npmjs.com/package/@openape/nuxt-auth-idp) | Identity Provider module (includes grant management) |
 | `@openape/nuxt-auth-sp` | [![npm](https://img.shields.io/npm/v/@openape/nuxt-auth-sp)](https://www.npmjs.com/package/@openape/nuxt-auth-sp) | Service Provider module |
-| `@openape/nuxt-grants` | [![npm](https://img.shields.io/npm/v/@openape/nuxt-grants)](https://www.npmjs.com/package/@openape/nuxt-grants) | Grant management UI & API |
 
-### Tools
+### CLI & Tools
 
 | Package | npm | Description |
 |---|---|---|
+| [`@openape/apes`](https://github.com/openape-ai/openape/tree/main/packages/apes) | [![npm](https://img.shields.io/npm/v/@openape/apes)](https://www.npmjs.com/package/@openape/apes) | CLI + ape-shell: auth, grants, grant-secured execution, MCP server |
 | [`@openape/proxy`](https://github.com/openape-ai/openape/tree/main/packages/proxy) | [![npm](https://img.shields.io/npm/v/@openape/proxy)](https://www.npmjs.com/package/@openape/proxy) | Agent HTTP gateway — forward proxy with grant-based access control |
 | [`@openape/browser`](https://github.com/openape-ai/openape/tree/main/packages/browser) | [![npm](https://img.shields.io/npm/v/@openape/browser)](https://www.npmjs.com/package/@openape/browser) | Grant-aware headless browser (Playwright wrapper) |
-| [`@openape/grapes`](https://github.com/openape-ai/openape/tree/main/packages/grapes) | [![npm](https://img.shields.io/npm/v/@openape/grapes)](https://www.npmjs.com/package/@openape/grapes) | Universal grant management CLI |
-| [`@openape/shapes`](https://github.com/openape-ai/openape/tree/main/packages/shapes) | [![npm](https://img.shields.io/npm/v/@openape/shapes)](https://www.npmjs.com/package/@openape/shapes) | Grant-aware CLI wrappers |
 | [`escapes`](https://github.com/openape-ai/escapes) | — | Privilege elevation CLI — agents request root via grant approval (Rust) |
 
 ## Get Started
@@ -54,19 +52,21 @@ All packages live in the [**openape monorepo**](https://github.com/openape-ai/op
 
 ```bash
 # Install the Nuxt modules
-pnpm add @openape/nuxt-auth-idp  # for your Identity Provider
-pnpm add @openape/nuxt-auth-sp   # for your Service Provider
-pnpm add @openape/nuxt-grants    # for grant management
+pnpm add @openape/nuxt-auth-idp  # Identity Provider (includes grants)
+pnpm add @openape/nuxt-auth-sp   # Service Provider
+
+# Install the CLI
+pnpm add -g @openape/apes
 ```
 
 ```ts
 // nuxt.config.ts (IdP)
 export default defineNuxtConfig({
-  modules: ['@openape/nuxt-auth-idp', '@openape/nuxt-grants'],
+  modules: ['@openape/nuxt-auth-idp'],
   openapeIdp: {
+    rpName: 'My Identity Provider',
     rpID: 'id.example.com',
     rpOrigin: 'https://id.example.com',
-    issuer: 'https://id.example.com',
   }
 })
 ```
@@ -76,9 +76,7 @@ export default defineNuxtConfig({
 export default defineNuxtConfig({
   modules: ['@openape/nuxt-auth-sp'],
   openapeSp: {
-    spId: 'sp.example.com',
-    // Leave empty for DDISA DNS discovery:
-    openapeUrl: '',
+    clientId: 'sp.example.com',
   }
 })
 ```
